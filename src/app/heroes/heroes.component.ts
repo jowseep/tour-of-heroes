@@ -18,13 +18,7 @@ export class HeroesComponent {
     this.getHeroes();
   }
 
-  selectedHero?: Hero;
-
   getHeroes(): void {
-    this.heroes = this.service.getHeroes();
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+    this.service.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 }
